@@ -158,6 +158,67 @@ namespace InfoSys.Areas.Employees.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public IActionResult Detail(int id)
+        {
+            var employee = _unitOfWork.Employees.Get(id);
+
+            if (employee == null)
+                return NotFound();
+
+            var viewModel = new EmployeeDetailViewModel()
+            {
+                Id = employee.Id,
+                EmployeeNumber = employee.EmployeeNumber,
+                FirstName = employee.FirstName,
+                LastName = employee.LastName,
+                Gender = employee.Gender,
+                DateOfBirth = employee.DateOfBirth,
+                DateJoined = employee.DateJoined,
+                Designation = employee.Designation,
+                InsuranceNumber = employee.InsuranceNumber,
+                Email = employee.Email,
+                Phone = employee.Phone,
+                PaymentMethod = employee.PaymentMethod,
+                UnionMember = employee.UnionMember,
+                StudentLoan = employee.StudentLoan,
+                Address = employee.Address,
+                City = employee.City,
+                ImageUrl = employee.ImageUrl,
+                PostCode = employee.PostCode
+            };
+
+            return View(viewModel);
+        }
+
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            var employee = _unitOfWork.Employees.Get(id);
+
+            if (employee == null)
+                return NotFound();
+
+            var viewModel = new EmployeeDeleteViewModel()
+            {
+                Id = employee.Id,
+                Firstname = employee.FirstName,
+                Lastname = employee.LastName
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Delete(EmployeeDeleteViewModel employee)
+        {
+            await _unitOfWork.Employees.Delete(employee.Id);
+
+            return RedirectToAction(nameof(Index));
+        }
+
 
     }
 }
