@@ -73,11 +73,10 @@ namespace InfoSys.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<string>("MiddleName")
-                        .HasColumnType("nvarchar(50)")
-                        .HasMaxLength(50);
-
                     b.Property<int>("PaymentMethod")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Phone")
                         .HasColumnType("int");
 
                     b.Property<string>("PostCode")
@@ -112,9 +111,9 @@ namespace InfoSys.DataAccess.Migrations
                     b.Property<int>("EmployeeId")
                         .HasColumnType("int");
 
-                    b.Property<string>("FullName")
-                        .HasColumnType("nvarchar(100)")
-                        .HasMaxLength(100);
+                    b.Property<string>("Firstname")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<decimal>("HourlyRate")
                         .HasColumnType("money");
@@ -124,6 +123,10 @@ namespace InfoSys.DataAccess.Migrations
 
                     b.Property<decimal>("InsuranceContribution")
                         .HasColumnType("money");
+
+                    b.Property<string>("Lastname")
+                        .HasColumnType("nvarchar(50)")
+                        .HasMaxLength(50);
 
                     b.Property<decimal>("NetPayment")
                         .HasColumnType("money");

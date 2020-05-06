@@ -15,8 +15,11 @@ namespace InfoSys.Entities.Models
         public Employee Employee { get; set; }
 
 
-        [MaxLength(100)]
-        public string FullName { get; set; }
+        [MaxLength(50)]
+        public string Firstname { get; set; }
+
+        [MaxLength(50)]
+        public string Lastname { get; set; }
 
         public string NiNo { get; set; }
 

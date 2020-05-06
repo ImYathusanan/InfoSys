@@ -9,6 +9,7 @@ using InfoSys.Entities.Models;
 
 namespace InfoSys.Controllers
 {
+    [Area("Employee")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
