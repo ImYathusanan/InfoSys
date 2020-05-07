@@ -25,4 +25,9 @@
     <ProjectReference Include="..\InfoSys.DataAccess\InfoSys.DataAccess.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\employees\" />
+  </ItemGroup>
+
 </Project>

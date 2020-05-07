@@ -29,11 +29,11 @@ namespace InfoSys.Entities.ViewModels
 
         public string InsuranceNumber { get; set; }
 
-        public PaymentMethod PaymentMethod { get; set; }
+        public string PaymentMethod { get; set; }
 
-        public StudentLoan StudentLoan { get; set; }
+        public string StudentLoan { get; set; }
 
-        public UnionMember UnionMember { get; set; }
+        public string UnionMember { get; set; }
 
         public string Address { get; set; }
 

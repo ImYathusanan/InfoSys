@@ -1,0 +1,129 @@
+﻿@model EmployeeFormViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-secondary">Add New Employee</h1>
+<br />
+
+<form method="post" enctype="multipart/form-data" asp-action="Create">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="form-row">
+        <div class="form-group col-md-5">
+            <label asp-for="EmployeeNumber"></label>
+            <input asp-for="EmployeeNumber" class="form-control" placeholder="EMP000" />
+            <span asp-validation-for="EmployeeNumber" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="DateJoined"></label>
+            <input asp-for="DateJoined" class="form-control" />
+            <span asp-validation-for="DateJoined" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="FirstName"></label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="LastName"></label>
+            <input asp-for="LastName" class="form-control" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="Gender"></label>
+           <select asp-for="Gender" class="form-control">
+               <option>Male</option>
+               <option>Female</option>
+           </select>
+            <span asp-validation-for="Gender" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="DateOfBirth"></label>
+            <input asp-for="DateOfBirth" class="form-control" />
+            <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="Phone"></label>
+            <input asp-for="Phone" class="form-control" />
+            <span asp-validation-for="Phone" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="PaymentMethod"></label>
+            <select asp-for="PaymentMethod" asp-items="Html.GetEnumSelectList<InfoSys.Entities.Models.PaymentMethod>()" class="form-control"></select>
+            <span asp-validation-for="PaymentMethod" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="StudentLoan"></label>
+            <select asp-for="StudentLoan" asp-items="Html.GetEnumSelectList<InfoSys.Entities.Models.StudentLoan>()" class="form-control"></select>
+            <span asp-validation-for="StudentLoan" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="UnionMember"></label>
+            <select asp-for="UnionMember" asp-items="Html.GetEnumSelectList<InfoSys.Entities.Models.UnionMember>()" class="form-control"></select>
+            <span asp-validation-for="UnionMember" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-5">
+            <label asp-for="Designation"></label>
+            <input asp-for="Designation" class="form-control" />
+            <span asp-validation-for="Designation" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-5">
+            <label asp-for="ImageUrl"></label>
+            <input asp-for="ImageUrl" class="form-control" />
+            <span asp-validation-for="ImageUrl" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group col-md-10">
+            <label asp-for="Address"></label>
+            <input asp-for="Address" class="form-control" />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <div class="form-group col-md-10">
+            <label asp-for="City"></label>
+            <input asp-for="City" class="form-control" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="form-group col-md-3">
+            <label asp-for="PostCode"></label>
+            <input asp-for="PostCode" class="form-control" />
+            <span asp-validation-for="PostCode" class="text-danger"></span>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="form-group col-md-3">
+            <label asp-for="InsuranceNumber"></label>
+            <input asp-for="InsuranceNumber" class="form-control" />
+            <span asp-validation-for="InsuranceNumber" class="text-danger"></span>
+        </div>
+    </div>
+    <br />
+    <div class="form-group col-10">
+        <button type="submit" class="btn btn-success rounded float-left">Save</button>
+        <button asp-action="Index" class="btn btn-primary rounded float-right">Back</button>
+    </div>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+</form>
+
+@section Scripts {
+    @{Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
+

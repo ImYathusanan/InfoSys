@@ -1,0 +1,19 @@
+﻿@model EmployeeDeleteViewModel
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-danger">Are you sure want to delete this  employee?</h1>
+<br />
+<br />
+<div class="row">
+    <div class="container align-content-center">
+        <h4>Name : @Model.Firstname @Model.Lastname</h4>
+        <h4>Employee Number: @Model.Id</h4>
+    </div>
+    <form method="post" enctype="multipart/form-data" asp-action="Delete">
+        <button type="submit" class="btn btn-danger align-content-around">Delete</button>
+    </form>
+</div>
+

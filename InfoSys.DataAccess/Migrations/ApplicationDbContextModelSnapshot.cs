@@ -73,8 +73,8 @@ namespace InfoSys.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("PaymentMethod")
-                        .HasColumnType("int");
+                    b.Property<string>("PaymentMethod")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("Phone")
                         .HasColumnType("int");
@@ -84,11 +84,11 @@ namespace InfoSys.DataAccess.Migrations
                         .HasColumnType("nvarchar(50)")
                         .HasMaxLength(50);
 
-                    b.Property<int>("StudentLoan")
-                        .HasColumnType("int");
+                    b.Property<string>("StudentLoan")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UnionMember")
-                        .HasColumnType("int");
+                    b.Property<string>("UnionMember")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 

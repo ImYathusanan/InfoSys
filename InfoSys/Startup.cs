@@ -12,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using InfoSys.DataAccess.Data;
+using InfoSys.DataAccess.Repository;
 
 namespace InfoSys
 {
@@ -32,6 +33,9 @@ namespace InfoSys
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
         }
@@ -62,8 +66,9 @@ namespace InfoSys
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{area=Employee}/{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{area=Employees}/{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapControllers();
             });
         }
     }

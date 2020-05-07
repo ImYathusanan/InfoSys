@@ -1,0 +1,31 @@
+﻿@model EmployeeDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-secondary">Employee Detail</h1>
+<br />
+<div class="row">
+    
+        
+        <div class="col-4">
+            <img alt="" class="rounded-circle shadow-lg" src="@Url.Content(Model.ImageUrl)" style="width: 300px; height: 300px;" />
+        </div>
+        <div class="col-5">
+            <p class="text-primary">Employee Number: @Model.EmployeeNumber</p>
+            <p class="text-primary">Firstname: @Model.FirstName</p>
+            <p class="text-primary">Lastname: @Model.LastName</p>
+            <p class="text-primary">Date Of Birth: @Model.DateOfBirth.ToShortDateString()</p>
+            <p class="text-primary">Joned Date: @Model.DateJoined.ToShortDateString()</p>
+            <p class="text-primary">Phone: @Model.Phone</p>
+            <p class="text-primary">Email: @Model.Email</p>
+            <p class="text-primary">Student loan: @Model.StudentLoan</p>
+            <p class="text-primary">Insurance number: @Model.InsuranceNumber</p>
+            <p class="text-primary">Payment method: @Model.PaymentMethod</p>
+        </div>
+        
+            
+    
+   
+</div>

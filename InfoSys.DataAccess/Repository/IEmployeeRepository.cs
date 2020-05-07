@@ -8,17 +8,17 @@ namespace InfoSys.DataAccess.Repository
 {
     public interface IEmployeeRepository
     {
-        Task Add(Employee employee);
+        void Add(Employee employee);
 
         Employee Get(int id);
         IEnumerable<Employee> GetAll();
 
-        Task Delete(int id);
+        void Delete(int id);
 
         decimal UnionFees(int id);
         decimal StudentLoanPayment(int id, decimal totalAmount);
 
-        Task UpdateEmployee(int id);
-        Task UpdateEmployee(Employee employee);
+        void UpdateEmployee(int id);
+        void UpdateEmployee(Employee employee);
     }
 }

@@ -26,8 +26,15 @@ using InfoSys.Entities.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\Areas\Employees\Views\_ViewImports.cshtml"
+using InfoSys.Entities.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a4bc9cb4a1d11f0c28a746ed054b4cb82c25e233", @"/Areas/Employees/Views/_ViewStart.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b60b4516d1875e22a0211c4deb1b3994ada2cfc1", @"/Areas/Employees/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ac0283f0095c1780b9a45e04cb8170b5358b0aac", @"/Areas/Employees/Views/_ViewImports.cshtml")]
     public class Areas_Employees_Views__ViewStart : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998

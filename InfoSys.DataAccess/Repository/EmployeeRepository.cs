@@ -15,9 +15,9 @@ namespace InfoSys.DataAccess.Repository
         {
             _context = context;
         }
-        public async Task Add(Employee employee)
+        public void Add(Employee employee)
         {
-            await _context.Employees.AddAsync(employee);
+             _context.Employees.Add(employee);
 
         }
 
@@ -25,7 +25,7 @@ namespace InfoSys.DataAccess.Repository
             _context.Employees.Where(e => e.Id == id)
             .FirstOrDefault();
 
-        public async Task Delete(int id)
+        public void Delete(int id)
         {
             var employee = Get(id);
              _context.Remove(employee);
@@ -33,7 +33,10 @@ namespace InfoSys.DataAccess.Repository
 
 
 
-        public IEnumerable<Employee> GetAll() => _context.Employees;
+        public IEnumerable<Employee> GetAll()
+        {
+           return _context.Employees.ToList();
+        }
 
         public decimal StudentLoanPayment(int id, decimal totalAmount)
         {
@@ -45,13 +48,13 @@ namespace InfoSys.DataAccess.Repository
             throw new NotImplementedException();
         }
 
-        public async Task UpdateEmployee(int id)
+        public void UpdateEmployee(int id)
         {
             var employee = Get(id);
             _context.Employees.Update(employee);
         }
 
-        public async Task UpdateEmployee(Employee employee)
+        public void UpdateEmployee(Employee employee)
         {
             _context.Update(employee);
         }

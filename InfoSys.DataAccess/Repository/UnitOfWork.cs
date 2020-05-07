@@ -2,10 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace InfoSys.DataAccess.Repository
 {
-    class UnitOfWork : IUnitOfWork
+    public class UnitOfWork : IUnitOfWork
     {
         private readonly ApplicationDbContext _context;
         public IEmployeeRepository Employees { get; private set; }
@@ -18,7 +19,7 @@ namespace InfoSys.DataAccess.Repository
 
         public void Complete()
         {
-            _context.SaveChangesAsync();
+           _context.SaveChanges();
         }
     }
 }
