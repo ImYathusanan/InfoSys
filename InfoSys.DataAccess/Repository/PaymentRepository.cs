@@ -14,6 +14,8 @@ namespace InfoSys.DataAccess.Repository
 
         private decimal _contractualEarnings;
 
+        private decimal _overtimeHourse;
+
         public PaymentRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -54,34 +56,28 @@ namespace InfoSys.DataAccess.Repository
                                                 .Where(p => p.Id == id)
                                                 .FirstOrDefault();
 
-        public decimal NetPay(decimal totalEarnings, decimal totalDeduction)
-        {
-            throw new NotImplementedException();
-        }
+        public decimal NetPay(decimal totalEarnings, decimal totalDeduction) => totalEarnings - totalDeduction;
 
-        public decimal OverTimeEarnings(decimal overtimeRate, decimal overtimeHourse)
-        {
-            throw new NotImplementedException();
-        }
+
+        public decimal OverTimeEarnings(decimal overtimeRate, decimal overtimeHourse) => overtimeHourse * overtimeRate;
+       
 
         public decimal OverTimeHourse(decimal hourseWorked, decimal contractualHourse)
         {
-            throw new NotImplementedException();
+            if (hourseWorked <= contractualHourse)
+                _overtimeHourse = 0.00m;
+            else if (hourseWorked > contractualHourse)
+                _overtimeHourse = hourseWorked - contractualHourse;
+
+            return _overtimeHourse;
         }
 
-        public decimal OverTimeRate(decimal hourlyRate)
-        {
-            throw new NotImplementedException();
-        }
+        public decimal OverTimeRate(decimal hourlyRate) => hourlyRate * 1.5m;
 
         public decimal TotalDeduction(decimal tax, decimal insurance, decimal studentLoad, decimal unionFee)
-        {
-            throw new NotImplementedException();
-        }
+         => tax + insurance + studentLoad + unionFee;
 
         public decimal TotalEarnings(decimal overtimeEarnings, decimal contratualEarnings)
-        {
-            throw new NotImplementedException();
-        }
+         => overtimeEarnings + contratualEarnings;
     }
 }

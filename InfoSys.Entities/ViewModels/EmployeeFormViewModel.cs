@@ -50,11 +50,11 @@ namespace InfoSys.Entities.ViewModels
         [MaxLength(50)]
         public string InsuranceNumber { get; set; }
 
-        public string PaymentMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
 
-        public string StudentLoan { get; set; }
+        public StudentLoan StudentLoan { get; set; }
 
-        public string UnionMember { get; set; }
+        public UnionMember UnionMember { get; set; }
 
         [Required]
         [MaxLength(50)]

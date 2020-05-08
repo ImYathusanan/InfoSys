@@ -11,6 +11,11 @@ namespace InfoSys.DataAccess.Repository
     public class EmployeeRepository : IEmployeeRepository
     {
         private readonly ApplicationDbContext _context;
+
+        private decimal _studentLoanAmount;
+
+        private decimal _unionFee;
+
         public EmployeeRepository(ApplicationDbContext context)
         {
             _context = context;
@@ -40,12 +45,29 @@ namespace InfoSys.DataAccess.Repository
 
         public decimal StudentLoanPayment(int id, decimal totalAmount)
         {
-            throw new NotImplementedException();
+            var employee = Get(id);
+
+            if (employee.StudentLoan == StudentLoan.Yes && totalAmount > 1750 && totalAmount < 2000)
+                _studentLoanAmount = 15m;
+            else if (employee.StudentLoan == StudentLoan.Yes && totalAmount >= 2000 && totalAmount < 2250)
+                _studentLoanAmount = 38m;
+            else if (employee.StudentLoan == StudentLoan.Yes && totalAmount >= 2250 && totalAmount < 2500)
+                _studentLoanAmount = 60m;
+            else if (employee.StudentLoan == StudentLoan.Yes && totalAmount >= 2500)
+                _studentLoanAmount = 83m;
+            else
+                _studentLoanAmount = 0m;
+
+            return _studentLoanAmount;
         }
 
         public decimal UnionFees(int id)
         {
-            throw new NotImplementedException();
+            var employee = Get(id);
+
+            _unionFee = employee.UnionMember == UnionMember.Yes ? 10m : 0m;
+
+            return _unionFee;
         }
 
         public void UpdateEmployee(int id)
