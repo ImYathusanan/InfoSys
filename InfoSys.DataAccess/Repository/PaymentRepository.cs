@@ -79,5 +79,8 @@ namespace InfoSys.DataAccess.Repository
 
         public decimal TotalEarnings(decimal overtimeEarnings, decimal contratualEarnings)
          => overtimeEarnings + contratualEarnings;
+
+        public TaxYear GetTaxYearById(int id)
+            => _context.TaxYears.Where(y => y.Id == id).FirstOrDefault();
     }
 }

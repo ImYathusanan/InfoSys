@@ -9,6 +9,12 @@ namespace InfoSys.DataAccess.Repository
     {
         IEmployeeRepository Employees { get; }
 
+        IPaymentRepository Payments { get; }
+
+        ITaxRepository Taxes { get; }
+
+        IInsuranceRepository Insurences { get; }
+
         void Complete();
     }
 }

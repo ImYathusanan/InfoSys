@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InfoSys.DataAccess.Data;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,9 +7,16 @@ namespace InfoSys.DataAccess.Repository
 {
     public class InsuranceRepositroy : IInsuranceRepository
     {
+        private readonly ApplicationDbContext _context;
+
         private decimal _insuranceRate;
 
         private decimal _insuranceAmount;
+
+        public InsuranceRepositroy(ApplicationDbContext context)
+        {
+            _context = context;
+        }
 
         public decimal InsuranceContribution(decimal totalAmount)
         {

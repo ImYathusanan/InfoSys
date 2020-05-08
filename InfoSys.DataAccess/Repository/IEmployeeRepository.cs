@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 using InfoSys.Entities.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace InfoSys.DataAccess.Repository
 {
@@ -20,5 +21,7 @@ namespace InfoSys.DataAccess.Repository
 
         void UpdateEmployee(int id);
         void UpdateEmployee(Employee employee);
+
+        IEnumerable<SelectListItem> GetAllEmployeesForPayroll();
     }
 }

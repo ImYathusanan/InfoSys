@@ -436,3 +436,5 @@ D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Employees\Edit.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Employees\Detail.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Employees\Delete.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\_ViewImports.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\_ViewStart.cshtml.g.cs

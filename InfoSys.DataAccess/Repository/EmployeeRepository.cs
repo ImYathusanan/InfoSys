@@ -1,5 +1,6 @@
 ﻿using InfoSys.DataAccess.Data;
 using InfoSys.Entities.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,8 +36,6 @@ namespace InfoSys.DataAccess.Repository
             var employee = Get(id);
              _context.Remove(employee);
         }
-
-
 
         public IEnumerable<Employee> GetAll()
         {
@@ -79,6 +78,15 @@ namespace InfoSys.DataAccess.Repository
         public void UpdateEmployee(Employee employee)
         {
             _context.Update(employee);
+        }
+
+        public IEnumerable<SelectListItem> GetAllEmployeesForPayroll()
+        {
+            return GetAll().Select(e => new SelectListItem()
+            {
+                Text = e.FirstName,
+                Value = e.Id.ToString()
+            });
         }
     }
 }
