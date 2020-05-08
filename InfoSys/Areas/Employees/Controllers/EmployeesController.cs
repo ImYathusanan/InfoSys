@@ -42,8 +42,6 @@ namespace InfoSys.Areas.Employees.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(EmployeeFormViewModel viewModel)
         {
-            //if (!ModelState.IsValid)
-            //    return View();
 
             if (ModelState.IsValid)
             {
