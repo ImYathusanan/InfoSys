@@ -1,0 +1,26 @@
+﻿@model PaymentRecordDetailViewModel
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-secondary">Payment Detail</h1>
+<br />
+<div class="row">
+    <form>
+        <div class="form-row">
+            <div class="col-4">
+                <label asp-for="Firstname"></label>
+                <input asp-for="Firstname" class="form-control" readonly />
+            </div>
+            <div class="col-4">
+                <label asp-for="Lastname"></label>
+                <input asp-for="Lastname" class="form-control" readonly />
+            </div>
+            <div class="col-4">
+                <label asp-for="NetPayment"></label>
+                <input asp-for="NetPayment" class="form-control" readonly />
+            </div>
+        </div>
+    </form>
+</div>

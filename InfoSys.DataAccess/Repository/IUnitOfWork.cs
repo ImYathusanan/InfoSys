@@ -15,6 +15,8 @@ namespace InfoSys.DataAccess.Repository
 
         IInsuranceRepository Insurences { get; }
 
+        ITaxYearRepository TaxYears { get; }
+
         void Complete();
     }
 }

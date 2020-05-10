@@ -1,0 +1,55 @@
+﻿@model IEnumerable<PaymenRecordIndexViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-secondary">Payment Records</h1>
+<br />
+
+<div class="row">
+    <div class="col-12">
+        <table class="table table-striped">
+            <thead>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Payment Date</th>
+                <th>Month</th>
+                <th>Tax Year</th>
+                <th>Total Earnings</th>
+                <th>Total Deductions</th>
+                <th>Net Payment</th>
+                <th></th>
+            </thead>
+            <tbody>
+                @foreach(var payment in Model)
+                {
+                    <tr>
+                        <td>@payment.Firstname</td>
+                        <td>@payment.Lastname</td>,
+                        <td>@payment.PaymentDate.ToShortDateString()</td>
+                        <td>@payment.PaymentMonth</td>
+                        <td>@payment.Year</td>
+                        <td>@payment.TotalEarnings</td>
+                        <td>@payment.TotalDeduction</td>
+                        <td>@payment.NetPayment</td>
+                        <td>
+                            <div class="btn-group btn-sm" role="group">
+                                <a asp-action="Detail" asp-route-id="@payment.Id" class="btn btn-outline-info btn-sm">
+                                    Detail
+                                </a>
+                                <a asp-action="PaymentSlip" asp-route-id="@payment.Id" class="btn btn-outline-success btn-sm">
+                                    Preview
+                                </a>
+                                <a asp-action="GeneratePaymentslipPDF" asp-route-id="@payment.Id" class="btn btn-outline-primary btn-sm">
+                                    <strong>PDF</strong>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

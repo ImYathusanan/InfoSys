@@ -25,6 +25,7 @@ namespace InfoSys.Entities.ViewModels
         public string PaymentMonth { get; set; } = DateTime.Today.Month.ToString();
 
         public int TaxYearId { get; set; }
+
         public TaxYear TaxYear { get; set; }
 
         public string TaxCode { get; set; } = "1250L";

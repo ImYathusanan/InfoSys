@@ -1,0 +1,86 @@
+﻿@model PaymentCreateViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 class="text-secondary">Add Payment</h1>
+<br />
+<div class="row">
+    <form method="post" enctype="multipart/form-data" asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="form-group col-4">
+            <label asp-for="EmployeeId"></label>
+            <select asp-for="EmployeeId" asp-items="ViewBag.employees" class="form-control">
+                <option selected>--- Select Employee ---</option>
+            </select>
+            <span asp-validation-for="EmployeeId" class="text-danger"></span>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-3">
+                <label asp-for="PaymentMonth"></label>
+                <select asp-for="PaymentMonth" class="form-control">
+                    <option selected>--- Select Month ---</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                </select>
+                <span asp-validation-for="PaymentMonth" class="text-danger"></span>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3">
+                <label asp-for="TaxYearId"></label>
+                <select asp-for="TaxYearId" class="form-control" asp-items="ViewBag.taxYears">
+                    <option selected>--- Select Tax Year ---</option>
+                </select>
+                <span asp-validation-for="TaxYearId" class="text-danger"></span>
+            </div>
+            <div class="col-2"></div>
+           
+            <div class="col-3">
+                <label asp-for="PaymentDate"></label>
+                <input asp-for="PaymentDate" class="form-control" />
+                <span asp-validation-for="PaymentDate" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <div class="form-row">
+            <div class="col-3">
+                <label asp-for="HourlyRate"></label>
+                <input asp-for="HourlyRate" class="form-control" />
+                <span asp-validation-for="HourlyRate" class="text-danger"></span>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3">
+                <label asp-for="HoursWorked"></label>
+                <input asp-for="HoursWorked" class="form-control" />
+                <span asp-validation-for="HoursWorked" class="text-danger"></span>
+            </div>
+            <div class="col-2"></div>
+            <div class="col-3">
+                <label asp-for="ContractualHours"></label>
+                <input asp-for="ContractualHours" class="form-control" />
+                <span asp-validation-for="ContractualHours" class="text-danger"></span>
+            </div>
+        </div>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+</div>
+
+
+@section Scripts {
+    @{Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}

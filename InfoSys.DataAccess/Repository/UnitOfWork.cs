@@ -15,7 +15,9 @@ namespace InfoSys.DataAccess.Repository
 
         public ITaxRepository Taxes { get; private set; }
 
-        public IInsuranceRepository Insurances { get; private set; }
+        public ITaxYearRepository TaxYears { get; private set; }
+
+        public IInsuranceRepository Insurences { get; private set; }
 
         public UnitOfWork(ApplicationDbContext context)
         {
@@ -23,7 +25,8 @@ namespace InfoSys.DataAccess.Repository
             Employees = new EmployeeRepository(context);
             Payments = new PaymentRepository(context);
             Taxes = new TaxRepository(context);
-            Insurances = new InsuranceRepositroy(context);
+            Insurences = new InsuranceRepositroy(context);
+            TaxYears = new TaxYearRepository(context);
         }
 
         public void Complete()

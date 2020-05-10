@@ -52,8 +52,13 @@
 
                 <li class="list-group-item bg-primary text-white">Payrol</li>
 
-                <button type="button" class="list-group-item list-group-item-action">New Payment</button>
-                <button type="button" class="list-group-item list-group-item-action">Payment Record</button>
+                <a asp-area="Payment" asp-controller="Payments" asp-action="Create">
+                    <button type="button" class="list-group-item list-group-item-action">New Payment</button>
+                </a>
+
+                <a asp-area="Payment" asp-controller="Payments" asp-action="Index">
+                    <button type="button" class="list-group-item list-group-item-action">Payment Records</button>
+                </a>
                 
              </ul>
 </div>

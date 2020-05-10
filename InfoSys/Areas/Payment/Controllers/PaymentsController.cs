@@ -6,6 +6,7 @@ using InfoSys.DataAccess.Repository;
 using InfoSys.Entities.Models;
 using InfoSys.Entities.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using RotativaCore;
 
 namespace InfoSys.Areas.Payment.Controllers
 {
@@ -28,7 +29,7 @@ namespace InfoSys.Areas.Payment.Controllers
             _unitOfWork = unitOfWork;
         }
 
-        [HttpGet]
+        
         public IActionResult Index()
         {
             var paymentRecords = _unitOfWork.Payments.GetAll().Select(p => new PaymenRecordIndexViewModel
@@ -39,7 +40,8 @@ namespace InfoSys.Areas.Payment.Controllers
                 Lastname = p.Lastname,
                 PaymentMonth = p.PaymentMonth,
                 TaxYearId = p.TaxYearId,
-                Year = _unitOfWork.Payments.GetTaxYearById(p.TaxYearId).YearOfTax,
+                Year = _unitOfWork.TaxYears.GetTaxYearById(p.TaxYearId).YearOfTax,
+              //  Year = _unitOfWork.TaxYears.GetTaxYearById(
                 TotalEarnings = p.TotalEarnings,
                 TotalDeduction = p.TotalDeduction,
                 NetPayment = p.NetPayment,
@@ -52,7 +54,7 @@ namespace InfoSys.Areas.Payment.Controllers
         public IActionResult Create()
         {
             ViewBag.employees = _unitOfWork.Employees.GetAllEmployeesForPayroll();
-            ViewBag.taxYears = _unitOfWork.Payments.GetAllTaxYear();
+            ViewBag.taxYears = _unitOfWork.TaxYears.GetAll();
             var viewModel = new PaymentCreateViewModel();
 
             return View(viewModel);
@@ -96,7 +98,7 @@ namespace InfoSys.Areas.Payment.Controllers
             }
 
             ViewBag.employees = _unitOfWork.Employees.GetAllEmployeesForPayroll();
-            ViewBag.taxYears = _unitOfWork.Payments.GetAllTaxYear();
+            ViewBag.taxYears = _unitOfWork.TaxYears.GetAll();
             return View();
         }
 
@@ -116,7 +118,8 @@ namespace InfoSys.Areas.Payment.Controllers
                 PaymentDate = paymentRecord.PaymentDate,
                 PaymentMonth = paymentRecord.PaymentMonth,
                 TaxYearId = paymentRecord.TaxYearId,
-                Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
+                Year = _unitOfWork.TaxYears.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
+              //  Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
                 TaxCode = paymentRecord.TaxCode,
                 HourlyRate = paymentRecord.HourlyRate,
                 HoursWorked = paymentRecord.HoursWorked,
@@ -154,7 +157,8 @@ namespace InfoSys.Areas.Payment.Controllers
                 PaymentDate = paymentRecord.PaymentDate,
                 PaymentMonth = paymentRecord.PaymentMonth,
                 TaxYearId = paymentRecord.TaxYearId,
-                Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
+                Year = _unitOfWork.TaxYears.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
+              //  Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
                 TaxCode = paymentRecord.TaxCode,
                 HourlyRate = paymentRecord.HourlyRate,
                 HoursWorked = paymentRecord.HoursWorked,
@@ -173,6 +177,16 @@ namespace InfoSys.Areas.Payment.Controllers
             };
 
             return View(viewModel);
+        }
+
+        public IActionResult GeneratePaymentslipPDF(int id)
+        {
+            var paymentSlip = new ActionAsPdf("PaymentSlip", new { id = id })
+            {
+                FileName = "PaymentSlip.pdf"
+            };
+
+            return paymentSlip;
         }
     }
 }

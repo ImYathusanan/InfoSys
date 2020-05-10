@@ -43,13 +43,19 @@ namespace InfoSys.DataAccess.Repository
 
         public IEnumerable<SelectListItem> GetAllTaxYear()
         {
-            var allTaxYear = _context.TaxYears.Select(taxYear => new SelectListItem
-            {
-                Text = taxYear.YearOfTax,
-                Value = taxYear.ToString()
-            });
+            //var allTaxYear = _context.TaxYears.Select(taxYear => new SelectListItem
+            //{
+            //    Text = taxYear.YearOfTax,
+            //    Value = taxYear.ToString()
+            //});
 
-            return allTaxYear;
+            //return allTaxYear;
+
+            return GetAll().Select(y => new SelectListItem()
+            {
+                Text = y.TaxYear.YearOfTax,
+                Value = y.TaxYearId.ToString()
+            }); ;
         }
 
         public PaymentRecord GetById(int id) => _context.PaymentRecords
@@ -80,7 +86,6 @@ namespace InfoSys.DataAccess.Repository
         public decimal TotalEarnings(decimal overtimeEarnings, decimal contratualEarnings)
          => overtimeEarnings + contratualEarnings;
 
-        public TaxYear GetTaxYearById(int id)
-            => _context.TaxYears.Where(y => y.Id == id).FirstOrDefault();
+        
     }
 }

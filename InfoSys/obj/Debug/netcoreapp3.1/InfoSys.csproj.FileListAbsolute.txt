@@ -425,8 +425,6 @@ D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\ru\Mi
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\InfoSys.MvcApplicationPartsAssemblyInfo.cs
-D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\InfoSys.MvcApplicationPartsAssemblyInfo.cache
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Home\Index.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Home\Privacy.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\_ViewImports.cshtml.g.cs
@@ -438,3 +436,12 @@ D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Employees\Views\Employees\Delete.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\_ViewImports.cshtml.g.cs
 D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\_ViewStart.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\Payments\Index.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\Payments\Create.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\Payments\Detail.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\Razor\Areas\Payment\Views\Payments\PaymentSlip.cshtml.g.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\WkHtmlToPdf\wkhtmltoimage.exe
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\RotativaCore.dll
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\InfoSys.MvcApplicationPartsAssemblyInfo.cs
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\obj\Debug\netcoreapp3.1\InfoSys.MvcApplicationPartsAssemblyInfo.cache
+D:\.Net Core Mini Projects\InfoSys\InfoSys\InfoSys\bin\Debug\netcoreapp3.1\WkHtmlToPdf\wkhtmltopdf.exe

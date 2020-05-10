@@ -1,0 +1,38 @@
+﻿@model PaymentRecordDetailViewModel
+@{
+    ViewData["Title"] = "PaymentSlip";
+    Layout = null;
+}
+
+<h1 class="text-secondary">Payment Slip</h1>
+<br />
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid d-flex justify-content-between">
+                    <div class="col-md-3">
+                        <p class="mt-5 mb-2"><b>InfoSys Ltd</b></p>
+                        <p>Dowing street <br />London</p>
+                    </div>
+                    <div class="col-md-3">
+                        <p class="mt-5 mb-2 text-right"><b>Payment Date: @Model.PaymentDate.ToShortDateString()</b></p>
+                        <p class="text-right">Tx code: @Model.TaxCode <br />Year: @Model.TaxYear</p>
+                    </div>
+                </div>
+                <div class="col-md-12 row">
+                    <div class="col-md-8">
+                        <h5>Firstname: @Model.Firstname</h5>
+                        <h5>Lastname: @Model.Lastname</h5>
+                        <h5>Total earnings:@Model.TotalEarnings</h5>
+                        <h5>Total deduction: @Model.TotalDeduction</h5>
+                        <h5>Net Payment: @Model.NetPayment</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
