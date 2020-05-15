@@ -9,10 +9,12 @@ using InfoSys.Entities.ViewModels;
 using System.IO;
 using Microsoft.Extensions.Hosting.Internal;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Authorization;
 
 namespace InfoSys.Areas.Employees.Controllers
 {
     [Area("Employees")]
+    [Authorize]
     public class EmployeesController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 using InfoSys.DataAccess.Repository;
 using InfoSys.Entities.Models;
 using InfoSys.Entities.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RotativaCore;
 
 namespace InfoSys.Areas.Payment.Controllers
 {
     [Area("Payment")]
+    [Authorize(Roles = "Admin, Manager")]
     public class PaymentsController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
@@ -51,6 +53,7 @@ namespace InfoSys.Areas.Payment.Controllers
             return View(paymentRecords);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewBag.employees = _unitOfWork.Employees.GetAllEmployeesForPayroll();
@@ -62,6 +65,7 @@ namespace InfoSys.Areas.Payment.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(PaymentCreateViewModel viewModel)
         {
             if(ModelState.IsValid)
@@ -119,7 +123,6 @@ namespace InfoSys.Areas.Payment.Controllers
                 PaymentMonth = paymentRecord.PaymentMonth,
                 TaxYearId = paymentRecord.TaxYearId,
                 Year = _unitOfWork.TaxYears.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
-              //  Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
                 TaxCode = paymentRecord.TaxCode,
                 HourlyRate = paymentRecord.HourlyRate,
                 HoursWorked = paymentRecord.HoursWorked,
@@ -141,6 +144,7 @@ namespace InfoSys.Areas.Payment.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult PaymentSlip(int id)
         {
             var paymentRecord = _unitOfWork.Payments.GetById(id);
@@ -158,7 +162,6 @@ namespace InfoSys.Areas.Payment.Controllers
                 PaymentMonth = paymentRecord.PaymentMonth,
                 TaxYearId = paymentRecord.TaxYearId,
                 Year = _unitOfWork.TaxYears.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
-              //  Year = _unitOfWork.Payments.GetTaxYearById(paymentRecord.TaxYearId).YearOfTax,
                 TaxCode = paymentRecord.TaxCode,
                 HourlyRate = paymentRecord.HourlyRate,
                 HoursWorked = paymentRecord.HoursWorked,

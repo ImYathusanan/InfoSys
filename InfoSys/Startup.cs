@@ -13,6 +13,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using InfoSys.DataAccess.Data;
 using InfoSys.DataAccess.Repository;
+using InfoSys.Entities;
 
 namespace InfoSys
 {
@@ -31,8 +32,21 @@ namespace InfoSys
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.Configure<IdentityOptions>(options =>
+                {
+                    options.Password.RequireDigit = true;
+                    options.Password.RequireLowercase = true;
+                    options.Password.RequireUppercase = true;
+                    options.Password.RequiredLength = 6;
+                    options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(10);
+                    options.Lockout.MaxFailedAccessAttempts = 5;
+                    options.Lockout.AllowedForNewUsers = true;
+                }
+            );
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
@@ -41,7 +55,7 @@ namespace InfoSys
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             if (env.IsDevelopment())
             {
@@ -62,6 +76,7 @@ namespace InfoSys
             app.UseAuthentication();
             app.UseAuthorization();
 
+            UserAndRolesSeedInitializer.UserAndRoleSeed(userManager, roleManager).Wait();
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
